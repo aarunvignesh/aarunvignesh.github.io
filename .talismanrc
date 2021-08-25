@@ -1,0 +1,5 @@
+fileignoreconfig:
+- filename: static/js/jquery.arctext.js
+  checksum: 8f6a3f44592a3b0054b9591c5acb78f817374f0bad6b8f53e33926ebe61f06dc
+- filename: index.html
+  checksum: 02564596bfea4ea2e5dbe0aa6ec232e7dd95574accbdfff4bb6045acd369e850
