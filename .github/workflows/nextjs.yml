@@ -58,7 +58,7 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
         working-directory: ./blog
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} ./blog/node_modules/.bin/next build
+        run: ${{ steps.detect-package-manager.outputs.runner }} npm run build
         working-directory: ./blog
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
