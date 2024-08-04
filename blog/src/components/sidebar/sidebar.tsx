@@ -5,9 +5,8 @@ import {updateSidebarState} from './../../stores/sidebar';
 export const Sidebar = () => {
   let [isSidebarVisible, setSideBarToggle] = useState(updateSidebarState.getState());
 
-  updateSidebarState.subscribe((state)=>{
+  updateSidebarState.subscribe((state:boolean)=>{
     setSideBarToggle(state);
-    console.log(state);
   })
 
   return (
