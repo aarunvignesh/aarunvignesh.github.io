@@ -62,9 +62,8 @@ jobs:
         working-directory: ./blog
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
-        working-directory: ./blog
         with:
-          path: ./out
+          path: ./blog/out
 
   # Deployment job
   deploy:
