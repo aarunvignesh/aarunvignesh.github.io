@@ -15,17 +15,20 @@ export const Sidebar = () => {
         isSidebarVisible ? '-translate-x-full' : 'translate-x-0'
       }`}
     >
-      <div className="p-4">
+      <div className="flex flex-col p-4 h-screen">
         <h2 className="text-2xl font-bold">Navigations</h2>
-        <div className={`flex flex-col mt-4 flex-wrap justify-evenly justify-around md:w-1/2 h-full text-zinc-400`}>
-                <div className={`flex w-1/4 p-4`}>
-                    <a href="/blog">Blogs</a>
+        <div className={`flex flex-col mt-4 flex-wrap justify-evenly justify-around md:w-1/2 text-zinc-400`}>
+                <div className={`flex w-auto p-4`}>
+                    <a href="/blog">About me</a>
                 </div>
-                <div className={`flex w-1/4 p-4`}>
-                    <a href="/blog">Profile</a>
+                <div className={`flex w-auto p-4`}>
+                    <a href="/blog">Blog</a>
                 </div>
-                <div className={`flex w-1/4 p-4`}>
+                <div className={`flex w-auto p-4`}>
                     <a href="/blog">Search</a>
+                </div>
+                <div className={`w-auto mt-auto mb-14`}>
+                    <a className='w-auto ml-auto mr-4 text-gray-500' href='mailto:a.s.arunvignesh@gmail.com'>Email me!</a>
                 </div>
         </div>
        </div>
