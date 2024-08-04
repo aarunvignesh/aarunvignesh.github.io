@@ -27,9 +27,9 @@ export const Sidebar = () => {
                 <div className={`flex w-auto p-4`}>
                     <a href="/blog">Search</a>
                 </div>
-                <div className={`w-auto mt-auto mb-14`}>
-                    <a className='w-auto ml-auto mr-4 text-gray-500' href='mailto:a.s.arunvignesh@gmail.com'>Email me!</a>
-                </div>
+        </div>
+        <div className={`w-auto mt-auto mb-14`}>
+            <a className='w-auto ml-auto mr-4 text-gray-500' href='mailto:a.s.arunvignesh@gmail.com'>Email me!</a>
         </div>
        </div>
     </div>
