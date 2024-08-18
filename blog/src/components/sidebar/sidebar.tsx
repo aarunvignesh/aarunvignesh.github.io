@@ -15,7 +15,7 @@ export const Sidebar = () => {
         isSidebarVisible ? '-translate-x-full' : 'translate-x-0'
       }`}
     >
-      <div className="flex flex-col p-4 h-screen">
+      <div className="flex flex-col p-4 h-[97vh]">
         <h2 className="text-2xl font-bold">Navigations</h2>
         <div className={`flex flex-col mt-4 flex-wrap justify-evenly justify-around md:w-1/2 text-zinc-400`}>
                 <div className={`flex w-auto p-4`}>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { updateSidebarState } from './../../stores/sidebar'
 
 export default function Header (){
@@ -13,14 +14,16 @@ export default function Header (){
     return (
         <div className={`flex flex-row flex-wrap items-center w-full justify-evenly h-10 z-20 bg-gray-800`}>
             <div className={`flex flex-row w-full md:w-1/3 h-full items-center`}>
-                <div className={`h-auto w-10 bg-gray-500 m-2 p-2 rounded`}>
-                    <img
-                        src="./assets/img/av.png" 
-                        alt="Logo"
-                        className={`h-full w-full object-contain`} 
-                    />
-                </div>
-                <h1 className={`text-l font-bold text-gray-400 w-auto`}>Arun Vignesh</h1>
+                <Link href="/" className={`flex flex-row w-full h-full items-center`}>
+                    <div className={`h-auto w-10 bg-gray-500 m-2 p-2 rounded`}>
+                        <img
+                            src="/assets/img/av.png" 
+                            alt="Logo"
+                            className={`h-full w-full object-contain`} 
+                        />
+                    </div>
+                    <h1 className={`text-l font-bold text-gray-300 w-auto`}>Arun Vignesh</h1>
+                </Link>
                 <div className={`flex w-8 h-6 p-1 ml-auto mr-2 pt-1 pb-1 rounded md:hidden bg-gray-400`} onClick={handleClick}>
                     <button className={`flex flex-col justify-center items-center`}>
                         <span className={`bg-gray-500 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}>
@@ -34,13 +37,13 @@ export default function Header (){
             </div>
             <div className={`flex flex-row flex-wrap items-center justify-center hidden md:flex md:w-1/3 h-full text-zinc-200`}>
                 <div className={`flex w-[110px]`}>
-                    <a href="/blog">About me</a>
+                    <Link href="/profile">About me</Link>
                 </div>
                 <div className={`flex w-16 mr-3`}>
-                    <a href="/blog">Blogs</a>
+                    <Link href="/">Blogs</Link>
                 </div>
                 <div className={`flex w-16`}>
-                    <a href="/blog">Search</a>
+                    <Link href="/search">Search</Link>
                 </div>
             </div>
             <div className={`flex flex-row items-center justify-center hidden md:flex md:w-1/3 h-full`}>
