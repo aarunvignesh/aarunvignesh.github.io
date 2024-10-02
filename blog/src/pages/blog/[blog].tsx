@@ -5,11 +5,11 @@ import Image from "next/image";
 import ImageAndText from "@/components/blog-components/image-and-text/image-and-text";
 import Subheading from "@/components/blog-components/sub-heading/sub-heading";
 import Quotation from "@/components/blog-components/quotation/quotation";
+import DisqusComponent from "@/components/disqus/disqus";
 
 export async function getStaticPaths() {
     const res = await fetch('https://raw.githubusercontent.com/aarunvignesh/didactic-octo-waddle/master/public/blog_home/content.json');
     const data = await res.json();
-  
     const paths = data.cards.map((blog:any) => ({
       params: { blog: blog.href.replace("./blog/","") },
     }));
@@ -19,34 +19,39 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({params}:{params:any}) => {
     const blog = params.blog;
     const res = await fetch(`https://raw.githubusercontent.com/aarunvignesh/didactic-octo-waddle/master/public/blogs/${blog}/content.json`)
-    const data = await res.json()
+    const data = await res.json();
     return { props: { page_data: data } }
 }
-
+const getRandomNumber = () => Math.round(Math.random()*1000)
 export default function BlogPage({page_data}:{page_data: any}){
-    console.log(page_data)
     return <Layout>
                 <div className={`container  md:mt-10 text-gray-900 space-y-12`}>
                     <Banner src={page_data.head.image} alt={page_data.head.title} title={page_data.head.title}></Banner>
                     {page_data.body.blog.content.map((module:any) => {
+
                         switch(module.module){
                             case "paragraph":
-                                return <Paragraph align={module.align} content={module.value} />
+                                return <Paragraph align={module.align} content={module.value} key={getRandomNumber()} />
                             case "image":
-                                return <Image src={module.value} width={200} height={200} className={`w-auto h-auto max-h-[500px] m-auto p-3`} alt={module.alt} />
+                                return <Image key={getRandomNumber()} src={module.value} width={200} height={200} className={`w-auto h-auto max-h-[500px] m-auto p-3`} alt={module.alt} />
                             case "image_and_text":
-                                return <ImageAndText content={module.value} img_src={module.img_src} align_image={module.align_image}/>
+                                return <ImageAndText key={getRandomNumber()} content={module.value} img_src={module.img_src} align_image={module.align_image}/>
                             case "sub_heading":
-                                return <Subheading content={module.value} module_type={module.module}/>
+                                return <Subheading key={getRandomNumber()} content={module.value} module_type={module.module}/>
                             case "inner_sub_heading":
-                                return <Subheading content={module.value} module_type={module.module}/>
+                                return <Subheading key={getRandomNumber()} content={module.value} module_type={module.module}/>
                             case "quotation":
-                                return <Quotation content={module.value}/>
+                                return <Quotation key={getRandomNumber()} content={module.value}/>
                             case "break":
-                                    return <div className={`w-full h-8 border-b-2 border-gray-400`}></div>
+                                    return <div key={getRandomNumber()} className={`w-full h-8 border-b-2 border-gray-400`}></div>
                         }
                     })}
+
+                 <DisqusComponent
+                    articleId={page_data.head.page_id}
+                    title={page_data.head.title}></DisqusComponent> 
                 </div>
+                
                 
             </Layout>
 } 

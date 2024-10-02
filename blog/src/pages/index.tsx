@@ -8,13 +8,12 @@ export const getStaticProps = async () => {
 }
 
 export default function Home({home_page_data}:{home_page_data: any}) {
-  console.log(home_page_data);
   return (
       <Layout>
         <div className={`container md:mt-12 p-8 md:p-0`}>
-          <div className={`grid grid-cols-1 md:grid-cols-3 gap-6`}>
+          <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-12`}>
             {home_page_data.cards.map((x:any, i: number) => {
-              return <div key={`card-${i}`} className={`w-full h-56`}>
+              return <div key={`card-${i}`} className={`w-full h-56 md:w-56 lg:w-72`}>
                           <Card imageUrl={x.image_src} title={x.title} ctaUrl={x.href} />
                      </div>
             })}

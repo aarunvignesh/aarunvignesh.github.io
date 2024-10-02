@@ -1,4 +1,8 @@
-export default function Paragraph({align, content}:{align: string, content: string}){
-    return <p className={`text-${align} text-xl`} dangerouslySetInnerHTML={{ __html: content }}>
-    </p> 
+import parse from 'html-react-parser';
+
+export default function Paragraph({align, content, key}:{align: string, content: string, key: string}){
+    
+    return <div className={`text-${align} text-xl`} key={key} >
+        {parse(content)}
+    </div> 
 }
