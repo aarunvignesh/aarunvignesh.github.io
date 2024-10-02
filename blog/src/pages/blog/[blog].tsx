@@ -22,7 +22,7 @@ export const getStaticProps = async ({params}:{params:any}) => {
     const data = await res.json();
     return { props: { page_data: data } }
 }
-const getRandomNumber = () => Math.round(Math.random()*1000)
+const getRandomNumber = () => Math.round(Math.random()*1000).toString()
 export default function BlogPage({page_data}:{page_data: any}){
     return <Layout>
                 <div className={`container  md:mt-10 text-gray-900 space-y-12`}>
