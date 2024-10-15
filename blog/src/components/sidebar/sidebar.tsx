@@ -19,13 +19,13 @@ export const Sidebar = () => {
         <h2 className="text-2xl font-bold">Navigations</h2>
         <div className={`flex flex-col mt-4 flex-wrap justify-evenly justify-around md:w-1/2 text-zinc-400`}>
                 <div className={`flex w-auto p-4`}>
-                    <a href="/blog">About me</a>
+                    <a href="/profile">About me</a>
                 </div>
                 <div className={`flex w-auto p-4`}>
-                    <a href="/blog">Blog</a>
+                    <a href="/">Blog</a>
                 </div>
                 <div className={`flex w-auto p-4`}>
-                    <a href="/blog">Search</a>
+                    <a href="/search">Search</a>
                 </div>
         </div>
         <div className={`w-auto mt-auto mb-14`}>
