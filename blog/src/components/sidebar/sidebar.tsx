@@ -10,6 +10,10 @@ export const Sidebar = () => {
     setSideBarToggle(state);
   })
 
+  function toggleSideBar(){
+    updateSidebarState.setState(!updateSidebarState.getState())
+  }
+
   return (
     <div
       className={`fixed top-10 z-20 left-0 w-64 h-full bg-gray-900 text-white transition-transform transform ${
@@ -20,13 +24,13 @@ export const Sidebar = () => {
         <h2 className="text-2xl font-bold">Navigations</h2>
         <div className={`flex flex-col mt-4 flex-wrap justify-evenly justify-around md:w-1/2 text-zinc-400`}>
                 <div className={`flex w-auto p-4`}>
-                    <Link href="/profile">About me</Link>
+                    <Link href="/profile" onClick={toggleSideBar}>About me</Link>
                 </div>
                 <div className={`flex w-auto p-4`}>
-                    <Link href="/">Blog</Link>
+                    <Link href="/" onClick={toggleSideBar}>Blog</Link>
                 </div>
                 <div className={`flex w-auto p-4`}>
-                    <Link href="/search">Search</Link>
+                    <Link href="/search" onClick={toggleSideBar}>Search</Link>
                 </div>
         </div>
         <div className={`w-auto mt-auto mb-14`}>
